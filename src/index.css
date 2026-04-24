@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: #0d0d1a;
+    color: #e2e8f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0d0d1a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2e2e50;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b3b65;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-[#161628] border border-[#252540] rounded-xl;
+  }
+
+  .card-hover {
+    @apply card transition-all duration-200 hover:border-[#3b3b65];
+  }
+
+  .stat-card {
+    @apply card p-5;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 rounded-lg text-sm font-medium text-white transition-all duration-200;
+    background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 rounded-lg text-sm font-medium text-gray-400 bg-[#252540] border border-[#2e2e50] transition-all duration-200 hover:text-white hover:border-[#3b3b65];
+  }
+
+  .badge-legendary {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full bg-purple-900/50 text-purple-300 border border-purple-700/50;
+  }
+
+  .badge-ultra-rare {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full bg-cyan-900/50 text-cyan-300 border border-cyan-700/50;
+  }
+
+  .badge-rare {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full bg-blue-900/50 text-blue-300 border border-blue-700/50;
+  }
+
+  .badge-uncommon {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full bg-emerald-900/50 text-emerald-300 border border-emerald-700/50;
+  }
+
+  .badge-common {
+    @apply text-xs font-semibold px-2 py-0.5 rounded-full bg-gray-800 text-gray-400 border border-gray-700;
+  }
+
+  .badge-rc {
+    @apply text-xs font-bold px-2 py-0.5 rounded-full bg-orange-900/60 text-orange-300 border border-orange-700/60;
+  }
+
+  .badge-star {
+    @apply text-yellow-400 text-sm;
+  }
+}
